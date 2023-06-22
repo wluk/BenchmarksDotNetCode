@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>Span.ContainTests-20230622-083734</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.13.5, OS=Windows 11 (10.0.22621.1848/22H2/2022Update/SunValley2)
+AMD Ryzen 7 3700X, 1 CPU, 16 logical and 8 physical cores
+.NET SDK=8.0.100-preview.5.23303.2
+  [Host]   : .NET 6.0.16 (6.0.1623.17311), X64 RyuJIT AVX2
+  .NET 6.0 : .NET 6.0.16 (6.0.1623.17311), X64 RyuJIT AVX2
+  .NET 7.0 : .NET 7.0.5 (7.0.523.17405), X64 RyuJIT AVX2
+  .NET 8.0 : .NET 8.0.0 (8.0.23.28008), X64 RyuJIT AVX2
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>       Method</th><th>Job</th><th>Runtime</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Median</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>StringContainString</td><td>.NET 6.0</td><td>.NET 6.0</td><td>65.44 ns</td><td>0.307 ns</td><td>0.288 ns</td><td>65.52 ns</td><td>-</td>
+</tr><tr><td>SpanContainString</td><td>.NET 6.0</td><td>.NET 6.0</td><td>60.59 ns</td><td>0.144 ns</td><td>0.120 ns</td><td>60.59 ns</td><td>-</td>
+</tr><tr><td>SpanContainSpan</td><td>.NET 6.0</td><td>.NET 6.0</td><td>60.92 ns</td><td>0.549 ns</td><td>0.487 ns</td><td>60.71 ns</td><td>-</td>
+</tr><tr><td>StringContainString</td><td>.NET 7.0</td><td>.NET 7.0</td><td>64.14 ns</td><td>0.423 ns</td><td>0.396 ns</td><td>64.20 ns</td><td>-</td>
+</tr><tr><td>SpanContainString</td><td>.NET 7.0</td><td>.NET 7.0</td><td>63.78 ns</td><td>0.177 ns</td><td>0.157 ns</td><td>63.77 ns</td><td>-</td>
+</tr><tr><td>SpanContainSpan</td><td>.NET 7.0</td><td>.NET 7.0</td><td>63.22 ns</td><td>0.258 ns</td><td>0.241 ns</td><td>63.13 ns</td><td>-</td>
+</tr><tr><td>StringContainString</td><td>.NET 8.0</td><td>.NET 8.0</td><td>50.54 ns</td><td>1.001 ns</td><td>2.022 ns</td><td>49.77 ns</td><td>-</td>
+</tr><tr><td>SpanContainString</td><td>.NET 8.0</td><td>.NET 8.0</td><td>45.86 ns</td><td>0.176 ns</td><td>0.156 ns</td><td>45.83 ns</td><td>-</td>
+</tr><tr><td>SpanContainSpan</td><td>.NET 8.0</td><td>.NET 8.0</td><td>45.33 ns</td><td>0.171 ns</td><td>0.160 ns</td><td>45.29 ns</td><td>-</td>
+</tr></tbody></table>
+</body>
+</html>
